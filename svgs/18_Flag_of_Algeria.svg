@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="900"
+   height="600"
+   version="1.1"
+   id="svg5917"
+   sodipodi:docname="18_Flag_of_Algeria.svg"
+   inkscape:version="0.92.1 r15371">
+  <metadata
+     id="metadata5923">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs5921" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1360"
+     inkscape:window-height="615"
+     id="namedview5919"
+     showgrid="false"
+     inkscape:zoom="0.55154329"
+     inkscape:cx="274.33608"
+     inkscape:cy="314.26916"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5917" />
+  <rect
+     fill="#fff"
+     width="900"
+     height="600"
+     id="rect5911" />
+  <rect
+     fill="#006233"
+     width="450"
+     height="600"
+     id="rect5913" />
+  <path
+     style="fill:#d21034"
+     d="M 580,225 C 546.05464,166.20491 476.84975,137.53948 411.27788,155.1116 345.70649,172.68359 300.12201,232.1104 300.12201,300 c 0,67.8896 45.58448,127.31641 111.15587,144.8884 C 476.84975,462.46052 546.05464,433.79509 580,375 548.1538,414.7759 494.65996,430.10325 446.58391,413.22746 398.50804,396.35174 366.3354,350.95353 366.3354,300 c 0,-50.95353 32.17264,-96.35174 80.24851,-113.22746 C 494.65996,169.89675 548.1538,185.2241 580,225"
+     id="path5953" />
+  <path
+     style="fill:#d21034"
+     d="M 585,300 450,256 534,371 V 229 l -84,115 z"
+     id="path5915" />
+</svg>
