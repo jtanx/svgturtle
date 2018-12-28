@@ -137,6 +137,9 @@ class Style(object):
         if strcolour is not None:
             if strcolour.startswith('#') and len(strcolour) == 4:
                 strcolour = '#{0}{0}{1}{1}{2}{2}'.format(*strcolour[1:])
+            elif strcolour.strip().lower() == 'transparent':
+                #hmm
+                strcolour = 'none'
         return strcolour
 
     def rev_update(self, other):
@@ -208,7 +211,7 @@ class Renderable(object):
         ''' Parses an input length to user units '''
         if input is None:
             return 0
-        m = re.match(r'^([+-]?[\d]+(?:\.[\d]*?)?)([a-zA-Z%]+)?$', input)
+        m = re.match(r'^([+-]?[\d]+(?:\.[\d]*?)?(?:[eE][-+]?[0-9]+)?)([a-zA-Z%]+)?$', input)
         if not m:
             raise ValueError("Invalid input: " + input)
         value = float(m.group(1))
@@ -478,7 +481,7 @@ class Path(Renderable):
         precision = 0.05
         for i in range(0, len(points), 3):
             cp = self.upos
-            lastcp = points[i + 1]
+            lastcp = (points[i + 1], points[i+2])
             if relative:
                 print(i, len(points), points)
                 points[i] += cp
@@ -560,6 +563,8 @@ class Path(Renderable):
                     else:
                         # FIXME: Not really reflection
                         print("REFLECTION: Before", lastcp)
+                        lastcp = Point(2. * lastcp[1].x - lastcp[0].x, 2. * lastcp[1].y - lastcp[0].y)
+                        #lastcp = lastcp[0]
                         # if command == 's':
                         #    lastcp[0], lastcp[1] = -lastcp[0], -lastcp[1]
                         # else:
@@ -739,12 +744,20 @@ class TurtleSVG(object):
                 rwidth = width
                 rheight *= scale
                 self.base.transform(TransformationMatrix.scale(scale))
+            print("SCREEN", rwidth, rheight)
+            # Get rid of most of the border that screws up positioning
+            cv = t.screen.getcanvas()
+            cv.config(highlightthickness=0, bd=0, relief='flat')
+            cv.winfo_toplevel().config(width=0, height=0, padx=0, pady=0)
             t.screen.setup(rwidth, rheight, 0, 0)
-            t.screen.reset()
             # This is a bit of a hack; it offsets the 0 position by the size of the turtle
             # Hardcoded to 8 pixels for now...
-            t.screen.setworldcoordinates(8, rheight, rwidth, 8)
+            t.screen.setworldcoordinates(9, rheight-9, rwidth-9, 9)
+            t.screen.reset()
+            cv.pack()
+            cv.winfo_toplevel().update()
             # t.speed(1)
+            t.screen.update()
             t.speed(0)
         t.showturtle()
         self.base.render(TurtleWrapper(t))
@@ -757,3 +770,7 @@ def demo(file, width=None):
     a = TurtleSVG(file)
     a.render(t, width=width)
     turtle.mainloop()
+
+if __name__ == "__main__":
+    import sys
+    demo(sys.argv[1], 700)
