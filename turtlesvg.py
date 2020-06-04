@@ -533,6 +533,8 @@ class Path(Renderable):
                 self.lineto([initial], t, False)
                 # Not technically correct, but turtle can't handle self-intersecting paths properly
                 t.svg_end()
+                if i + 1 < len(parts):
+                    style.fill = '#FFFFFF'
                 style.apply(t, matrix)
             elif command == 'L' or command == 'l':
                 points, j = self.getpoints(parts, i)
@@ -767,6 +769,8 @@ class TurtleSVG(object):
 def demo(file, width=None):
     import turtle
     t = turtle.Turtle()
+    #speed 控制速度
+    t.screen.delay(0)
     a = TurtleSVG(file)
     a.render(t, width=width)
     turtle.mainloop()
